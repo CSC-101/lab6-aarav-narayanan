@@ -63,19 +63,64 @@ class TestCases(unittest.TestCase):
         self.assertEqual(expected, input)
 
 
+
+
     # Part 1
+    def test_selection_books(self):
+        books=[data.Book(["Orwell"],"1984"),
+               data.Book(["Bob Kane"],"Batman"),
+               data.Book(["Rowling"],"Harry Potter")]
+        result=lab6.selection_sort_nooks(books)
+        expected=[data.Book(["Orwell"],"1984"),
+               data.Book(["Bob Kane"],"Batman"),
+               data.Book(["Rowling"],"Harry Potter")]
+        self.assertEqual(result,expected)
 
+    def test_selection_books2(self):
+        books=[data.Book(["Bob Kane"],"Batman"),
+               data.Book(["Stephen King"],"The Shining"),
+               data.Book(["Tolkein"],"The Hobbit")]
+        result=lab6.selection_sort_nooks(books)
+        expected=[data.Book(["Bob Kane"],"Batman"),
+                   data.Book(["Tolkein"], "The Hobbit"),
+               data.Book(["Stephen King"],"The Shining")]
+        self.assertEqual(result,expected)
 
-    # Part 2
-
+#Part2
+#Part 2
+    def test_swap_case(self):
+        letters="hrtsydyJ"
+        result=lab6.swap_case(letters)
+        expected="HRTSYDYj"
+        self.assertEqual(result,expected)
+    def test_swap_case2(self):
+        letters="fjekf$%JFK"
+        result=lab6.swap_case(letters)
+        expected="FJEKF$%jfk"
+        self.assertEqual(result,expected)
 
     # Part 3
+    def test_str_translate(self):
+        letters="abcdcba"
+        result=lab6.str_translate(letters,"a","x")
+        self.assertEqual(result, "xbcdcbx")
 
+    def test_str_translate2(self):
+        letters="whywhywhywhy"
+        result=lab6.str_translate(letters,"y","e")
+        self.assertEqual(result, "whewhewhewhe")
 
     # Part 4
-
-
-
+    def test_histogram(self):
+        words = "Here I am I am at the place"
+        result = lab6.histogram(words)
+        expected = {"Here": 1, "I": 2, "am": 2, "at": 1, "the": 1, "place": 1}
+        self.assertEqual(result, expected)
+    def test_histogram2(self):
+        words = "Words are words and they are all over the place"
+        result = lab6.histogram(words)
+        expected = {"words": 2, "are": 2, "and": 1, "they": 1, "all": 1,"over":1, "the":1, "place": 1}
+        self.assertEqual(result, expected)
 
 
 if __name__ == '__main__':
